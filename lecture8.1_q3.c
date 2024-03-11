@@ -23,13 +23,10 @@ main()
         scanf("%d", &b[i]);
     }
 
+    printf("\nArray C is:");
     for (i = 0; i < n; i++)
     {
         c[i] = a[i] + b[i];
-    }
-
-    printf("\nArray C is:");
-    for (i = 0; i < n; i++)
-
         printf(" %d,", c[i]);
+    }
 }
