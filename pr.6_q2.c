@@ -1,31 +1,25 @@
 #include <stdio.h>
-main()
+int main()
 {
-    char str[50];
-    int i, j, no, c = 1;
+    char str[100], c;
+    int i, freq[256] = {0};
 
-    printf("Enter any string:");
+    printf("Enter any string: ");
     gets(str);
-    for (j = 0; str[j]; j++)
-    {
-        no = j;
-    }
 
-    printf("Frequency of each letter: \n");
-    for (i = 0; i < no; i++)
+    for (i = 0; str[i] != '\0'; i++)
     {
-        c = 1;
-        if (str[i])
+        c = str[i];
+        freq[c]++;
+    }
+    
+    printf("Frequency of each letter:\n");
+    
+    for (i = 0; i < 256; i++)
+    {
+        if (freq[i] != 0 && (i >= 'A' && i <= 'Z' || i >= 'a' && i <= 'z'))
         {
-            for (j = i + 1; j < no; j++)
-            {
-                if (str[i] == str[j])
-                {
-                    c++;
-                    str[j] = '\0';
-                }
-            }
-            printf("%c => %d \n", str[i], c);
+            printf("%c => %d\n", i, freq[i]);
         }
     }
 }
