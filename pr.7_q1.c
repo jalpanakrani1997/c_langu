@@ -1,90 +1,83 @@
 #include <stdio.h>
-float add(float a, float b)
+
+int add(int no1, int no2)
 {
-    return a + b;
+    return no1 + no2;
 }
-float subtract(float a, float b)
+int sub(int no1, int no2)
 {
-    return a - b;
+    return no1 - no2;
 }
-float multiply(float a, float b)
+int multi(int no1, int no2)
 {
-    return a * b;
+    return no1 * no2;
 }
-float divide(float a, float b)
+int divi(int no1, int no2)
 {
-    if (b == 0)
-    {
-        printf("Error: Division by zero!\n");
-        return 0;
-    }
-    else
-    {
-        return a / b;
-    }
+    return no1 / no2;
 }
-int modulus(int a, int b)
+int modul(int no1, int no2)
 {
-    return a % b;
+    return no1 % no2;
 }
 
 int main()
 {
-    char choice;
-    float num1, num2;
-    do
+    int i, no, no1, no2;
+
+    for (i = 0; no != 0; i++)
     {
         printf("\nPress 1 for +\n");
         printf("Press 2 for -\n");
         printf("Press 3 for *\n");
         printf("Press 4 for /\n");
         printf("Press 5 for %%\n");
-        printf("Press 0 to exit\n\n");
+        printf("Press 0 for the exit\n\n");
         printf("Enter your choice: ");
-        scanf(" %c", &choice);
+        scanf("%d", &no);
 
-        switch (choice)
+        switch (no)
         {
-        case '1':
+        case 1:
             printf("Enter the first number: ");
-            scanf("%f", &num1);
+            scanf("%d", &no1);
             printf("Enter the second number: ");
-            scanf("%f", &num2);
-            printf("Addition of %.2f and %.2f is %.2f\n", num1, num2, add(num1, num2));
+            scanf("%d", &no2);
+            printf("Addition of %d and %d is %d\n", no1, no2, add(no1, no2));
             break;
-        case '2':
+
+        case 2:
             printf("Enter the first number: ");
-            scanf("%f", &num1);
+            scanf("%d", &no1);
             printf("Enter the second number: ");
-            scanf("%f", &num2);
-            printf("Subtraction of %.2f and %.2f is %.2f\n", num1, num2, subtract(num1, num2));
+            scanf("%d", &no2);
+            printf("Division of %d and %d is %d\n", no1, no2, sub(no1, no2));
             break;
-        case '3':
+
+        case 3:
             printf("Enter the first number: ");
-            scanf("%f", &num1);
+            scanf("%d", &no1);
             printf("Enter the second number: ");
-            scanf("%f", &num2);
-            printf("Multiplication of %.2f and %.2f is %.2f\n", num1, num2, multiply(num1, num2));
+            scanf("%d", &no2);
+            printf("Multiplication of %d and %d is %d\n", no1, no2, multi(no1, no2));
             break;
-        case '4':
+
+        case 4:
             printf("Enter the first number: ");
-            scanf("%f", &num1);
+            scanf("%d", &no1);
             printf("Enter the second number: ");
-            scanf("%f", &num2);
-            printf("Division of %.2f by %.2f is %.2f\n", num1, num2, divide(num1, num2));
+            scanf("%d", &no2);
+            printf("Division of %d and %d is %d\n", no1, no2, divi(no1, no2));
             break;
-        case '5':
+
+        case 5:
             printf("Enter the first number: ");
-            scanf("%f", &num1);
+            scanf("%d", &no1);
             printf("Enter the second number: ");
-            scanf("%f", &num2);
-            printf("Modulus of %.2f by %.2f is %d\n", num1, num2, modulus((int)num1, (int)num2));
+            scanf("%d", &no2);
+            printf("Modulus of %d and %d is %d\n", no1, no2, modul(no1, no2));
             break;
-        case '0':
-            printf("Exiting program...\n");
-            break;
-        default:
-            printf("Invalid choice! Please enter a valid option.\n");
         }
-    } while (choice != '0');
+    }
 }
+
