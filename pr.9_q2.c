@@ -6,47 +6,59 @@ struct Student
     int chem;
     int maths;
     int phy;
+};
+
+float per(int total)
+{
+    return ((float)total / 300) * 100;
 }
 
-main()
+int main()
 {
+    int i;
     struct Student stu[5];
 
-    for (int i = 0; i < 5; i++)
+    for (i = 0; i < 5; i++)
     {
-        printf("Enter details of Student %d:\n", i + 1);
+        printf("\nEnter details of Student %d:\n", i + 1);
 
-        printf("Roll no : ");
+        printf("Roll no => ");
         scanf("%d", &stu[i].roll);
 
-        printf("Name : ");
+        printf("Name => ");
         fflush(stdin);
         gets(stu[i].name);
 
-        printf("Chemistry marks : ");
+        printf("Chemistry => ");
         scanf("%d", &stu[i].chem);
 
-        printf("Mathematics marks : ");
+        printf("Mathematics => ");
         scanf("%d", &stu[i].maths);
 
-        printf("Physics marks : ");
+        printf("Physics => ");
         scanf("%d", &stu[i].phy);
-        printf("\n");
     }
 
-    for (int i = 0; i < 5; i++)
+    FILE *ptr = fopen("Marksheet.txt", "w");
+    if (ptr == NULL)
     {
-        printf("%s ", stu[i].name);
-        printf("(%d)\n", stu[i].roll);
-        printf("Chemistry => %d\n", stu[i].chem);
-        printf("Mathematics => %d\n", stu[i].maths);
-        printf("Physics => %d\n", stu[i].phy);
+        printf("Error opening file.");
+        return -1;
+    }
+
+    for (i = 0; i < 5; i++)
+    {
+        fprintf(ptr, "%s (%d)\n", stu[i].name, stu[i].roll);
+        fprintf(ptr, "Chemistry => %d\n", stu[i].chem);
+        fprintf(ptr, "Mathematics => %d\n", stu[i].maths);
+        fprintf(ptr, "Physics => %d\n", stu[i].phy);
 
         int total = stu[i].chem + stu[i].maths + stu[i].phy;
-        float percen = (float)total / 300 * 100;
-
-        printf("Total => %d/300\n", total);
-        printf("Percentage => %.2f%%\n", percen);
-        printf("\n");
+        
+        fprintf(ptr, "Total => %d/300\n", total);
+        fprintf(ptr, "Percent => %.2f%%\n\n", per(total));
     }
+
+    fclose(ptr);
+    printf("\nGenerate Marksheets.\n");
 }
