@@ -1,30 +1,20 @@
 #include <stdio.h>
-main()
+int main()
 {
-    int units;
-    float bill, total;
+    int i = 0, count = 0;
+    char a[1000];
 
-    printf("Enter electricity units: ");
-    scanf("%d", &units);
+    printf("Input a string : ");
+    gets(a);
 
-    if (units <= 50)
+    while (a[i] != '\0')
     {
-        total = 50 * 0.50;
-    }
-    else if (units <= 150)
-    {
-        total = 50 * 0.50 + (units - 100) * 0.75;
-    }
-    else if (units <= 250)
-    {
-        total = 50 * 0.50 + 100 * 0.75 + (units - 100) * 1.20;
-    }
-    else
-    {
-        total = 50 * 0.50 + 100 * 0.75 + 100 * 1.20 + (units - 250) * 1.50;
+        if (a[i] == 'a' || a[i] == 'A' || a[i] == 'e' || a[i] == 'E' || a[i] == 'i' || a[i] == 'I' || a[i] == 'o' || a[i] == 'O' || a[i] == 'u' || a[i] == 'U')
+            count++;
+        i++;
     }
 
-    bill = total + total * 0.20;
+    printf("Number of vowels in the string: %d", count);
 
-    printf("Electricity Bill = Rs. %.2f", bill);
+    return 0;
 }

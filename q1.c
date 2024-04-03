@@ -1,12 +1,16 @@
- #include <stdio.h>
+#include <stdio.h>
 int main()
 {
-    int no;
+    int no, i, fact = 1;
 
-    printf("Enter any number:");
+    printf("Enter any number: ");
     scanf("%d", &no);
 
-    printf("This number is %s\n", (no % 2 == 0) ? "Even" : "Odd");
-   
+    for (i = 1; i <= no; i++)
+    {
+        fact = fact * i;
+    }
+    printf("The factorial is: %d", fact);
+    
     return 0;
 }
